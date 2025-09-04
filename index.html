@@ -1,112 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>John Mora | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>John Mora — Data Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
+    :root{
+      --bg:#ffffff;
+      --text:#1b1f23;
+      --muted:#566370;
+      --panel:#f7f8fa;
+      --brand:#0a84ff;
+      --border:#e5e8ec;
+      --radius:14px;
+      --max:1100px;
     }
-    header {
-      background: #222;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      color: #222;
-      margin-top: 0;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
+    body{margin:0; font-family:Inter,system-ui; color:var(--text); background:var(--bg)}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    header{position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:10}
+    .nav{display:flex; justify-content:space-between; align-items:center; padding:14px 0}
+    .brand{font-weight:700}
+    .menu{display:flex; gap:10px}
+    .menu a{padding:8px 12px; border-radius:8px; color:var(--text)}
+    .menu a:hover{background:var(--panel)}
+    .menu a.active{background:#e9f2ff}
+
+    .hero{display:grid; grid-template-columns:35% 65%; gap:32px; align-items:start; padding:38px 0}
+    @media(max-width:900px){ .hero{grid-template-columns:1fr} }
+
+    .portrait{width:100%; aspect-ratio:1/1; border-radius:14px; 
+      background:url('assets/profile.jpg') center/cover no-repeat;
+      border:1px solid var(--border); margin-bottom:18px}
+    .section{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:18px; margin-bottom:18px}
+    .section h2{margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .list{margin:0; padding-left:18px}
+
+    .badges{display:flex; flex-wrap:wrap; gap:8px}
+    .badge{border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-size:14px}
+
+    h1{margin:6px 0 16px}
+    .eyebrow{font-size:12px; text-transform:uppercase; letter-spacing:.18em; color:var(--muted)}
+    .lead{color:var(--muted); font-size:18px; margin:0 0 20px}
+    .btn{display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid var(--border)}
+    .btn.primary{background:var(--brand); color:#fff; border:none}
+
+    footer{border-top:1px solid var(--border); color:var(--muted); padding:20px 0 36px}
   </style>
 </head>
 <body>
-  <header>
-    <h1>👋 Hi, I'm John Mora</h1>
-    <p>Ecuadorian Data Analyst & Coding Enthusiast</p>
-  </header>
+<header>
+  <nav class="container nav">
+    <div class="brand">John Mora</div>
+    <div class="menu">
+      <a class="active" href="#home">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="assets/JohnMora_CV.pdf" download>Resume</a>
+    </div>
+  </nav>
+</header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I’m a Data Analyst & Data Scientist with a Post-Baccalaureate Diploma from Canada 
-      and a background in Statistics (ESPOL).  
-    </p>
-    <p>
-      🌍 Bilingual: English (CA) + Spanish (EC) <br>
-      📊 Passionate about turning data into business insights <br>
-      💼 Seeking remote opportunities in data science, analytics, or business intelligence <br>
-      📍 Currently based in Canada on a post-graduation work permit
-    </p>
+<main id="home" class="container">
+  <section class="hero">
+    <!-- LEFT COLUMN: photo + about + interests -->
+    <div>
+      <div class="portrait" role="img" aria-label="Profile picture"></div>
+      <div class="section">
+        <h2>About me</h2>
+        <p class="muted">Statistics & Computer Science (ESPOL) · Post-Bacc in Marketing & Data Analytics (Okanagan College). I enjoy turning messy data into crisp visuals and models that guide business decisions.</p>
+      </div>
+      <div class="section">
+        <h2>Interests</h2>
+        <ul class="list muted">
+          <li>Geospatial & risk analysis</li>
+          <li>Text mining & sentiment</li>
+          <li>Predictive modeling for tabular data</li>
+          <li>ELT/ETL quality & reproducibility</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div>
+      <div class="eyebrow">Data Analytics · ML · Data Engineering</div>
+      <h1>Hi, I’m John Mora.</h1>
+      <p class="lead">I analyze, model, and ship data projects: geospatial risk analyses, Twitter sentiment, diabetes ML, thermodynamic modeling for coffee, and ELT (dbt · Snowflake · Airflow).</p>
+      <a class="btn primary" href="portfolio.html">View Portfolio</a>
+
+      <div class="section">
+        <h2>Tech stack</h2>
+        <div class="badges">
+          <span class="badge">Python (pandas, scikit-learn)</span>
+          <span class="badge">R (tidyverse)</span>
+          <span class="badge">SQL</span>
+          <span class="badge">Power BI · Tableau</span>
+          <span class="badge">Spark · Databricks</span>
+          <span class="badge">Hadoop</span>
+          <span class="badge">dbt · Airflow · Snowflake</span>
+          <span class="badge">Git & GitHub</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Experience (with skills)</h2>
+        <ul class="list muted">
+          <li>Built end-to-end ETL/ELT pipelines and dashboards.</li>
+          <li>Modeled classification problems (e.g., diabetes) with feature importance.</li>
+          <li>Scraped and analyzed Twitter data for sentiment and topics.</li>
+          <li>Designed geospatial risk visuals and factor comparisons.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Learning</h2>
+        <p class="muted">Databricks + Streaming (Kafka), dbt best practices, Snowflake warehousing, MLops basics.</p>
+      </div>
+
+      <div class="section" id="contact">
+        <h2>Contact</h2>
+        <p>
+          <a href="mailto:johnmora@example.com">johnmora@example.com</a> · 
+          <a href="https://www.linkedin.com/in/johnmora" target="_blank">LinkedIn</a> · 
+          <a href="https://github.com/johnmora1" target="_blank">GitHub</a>
+        </p>
+      </div>
+    </div>
   </section>
+</main>
 
-  <section>
-    <h2>💻 My Tech Stack</h2>
-    <ul>
-      <li>Languages: Python, R, SQL</li>
-      <li>Tools: Power BI, Tableau, Git, GitHub</li>
-      <li>Frameworks: Spark, Databricks, Hadoop</li>
-      <li>Other: Machine Learning, ETL pipelines, Data Visualization</li>
-    </ul>
-  </section>
+<footer>
+  <div class="container">© <span id="y"></span> John Mora</div>
+</footer>
 
-  <section>
-    <h2>📂 Projects</h2>
-    <ul>
-      <li><a href="https://github.com/johnmora1/Model.R">Machine Learning with R (XGBoost)</a></li>
-      <li><a href="https://github.com/johnmora1">Explore More Projects on GitHub</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>📫 Contact</h2>
-    <p>
-      Email: <a href="mailto:your.email@example.com">your.email@example.com</a> <br>
-      LinkedIn: <a href="https://linkedin.com/in/johnmora1" target="_blank">linkedin.com/in/johnmora1</a>
-    </p>
-  </section>
-
-  <footer>
-    <p>© 2025 John Mora. All Rights Reserved.</p>
-  </footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
