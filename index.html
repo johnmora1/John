@@ -1,86 +1,165 @@
 <!DOCTYPE html>
-<a href="portfolio.html">Portfolio</a>
-<a href="assets/JohnMora_CV.pdf" download>Resume</a>
-</div>
-</nav>
-</header>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>John Mora — Data Analytics Portfolio</title>
+  <meta name="description" content="John Mora — Data Analyst & Data Science portfolio"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0d10;           
+      --panel:#12161b;        
+      --muted:#a7b0bd;        
+      --text:#eef1f6;         
+      --brand:#2ec4b6;        
+      --brand-2:#ff9f1c;      
+      --border:rgba(255,255,255,.08);
+      --shadow:0 6px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:var(--text); background:radial-gradient(1200px 800px at 80% -10%, rgba(46,196,182,.15), transparent 60%),
+                          radial-gradient(1000px 600px at -10% 20%, rgba(255,159,28,.08), transparent 60%),
+                          var(--bg);
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 24px}
 
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(150%) blur(8px)}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      padding:14px 0; border-bottom:1px solid var(--border);
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.3px}
+    .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--brand),#3b82f6); box-shadow:var(--shadow)}
+    .menu{display:flex; gap:8px}
+    .menu a{padding:10px 14px; border-radius:12px; color:var(--muted); border:1px solid transparent}
+    .menu a:hover{color:var(--text); border-color:var(--border); background:rgba(255,255,255,.02)}
+    .menu a.active{color:#0b0d10; background:var(--brand); border-color:transparent}
+    .resume-btn{border:1px solid var(--border); background:rgba(255,255,255,.04)}
+    .resume-btn:hover{background:rgba(255,255,255,.08)}
 
-<main id="home" class="container">
-<section class="hero">
-<!-- LEFT COLUMN: picture, about me, interests -->
-<div>
-<div class="portrait" role="img" aria-label="Portrait placeholder"></div>
-<div class="section">
-<h2>About me</h2>
-<p class="muted">Statistics & Computer Science (ESPOL) · Post‑Bacc in Marketing & Data Analytics (Okanagan College). I enjoy turning messy data into crisp visuals and models that guide business decisions.</p>
-</div>
-<div class="section">
-<h2>Interests</h2>
-<ul class="list muted">
-<li>Geospatial & risk analysis</li>
-<li>Text mining & sentiment</li>
-<li>Predictive modeling for tabular data</li>
-<li>ELT/ETL quality & reproducibility</li>
-</ul>
-</div>
-</div>
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center; padding:56px 0 18px}
+    .hero .eyebrow{display:inline-block; font-size:12px; text-transform:uppercase; letter-spacing:.18em; color:var(--muted); margin-bottom:10px}
+    .hero h1{font-size:44px; line-height:1.05; margin:0 0 16px}
+    .hero p{color:var(--muted); font-size:18px; margin:0 0 24px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{padding:12px 16px; border-radius:14px; border:1px solid var(--border); background:rgba(255,255,255,.04); font-weight:600}
+    .btn:hover{background:rgba(255,255,255,.08)}
+    .btn.primary{background:var(--brand); color:#0b0d10; border-color:transparent}
+    .btn.secondary{background:rgba(255,159,28,.18); border-color:rgba(255,159,28,.36)}
 
+    .portrait{
+      width:100%; aspect-ratio:1/1; border-radius:20px; background:
+        radial-gradient(60% 60% at 30% 20%, rgba(46,196,182,.35), transparent 60%),
+        radial-gradient(60% 60% at 80% 90%, rgba(255,159,28,.25), transparent 60%),
+        url('https://avatars.githubusercontent.com/u/9919?s=200&v=4');
+      background-size:cover; background-position:center; border:1px solid var(--border); box-shadow:var(--shadow)
+    }
 
-<!-- RIGHT COLUMN: intro, tech stack, experience, learning, contact -->
-<div>
-<div class="eyebrow">Data Analytics · ML · Data Engineering</div>
-<h1>Hi, I’m John Mora.</h1>
-<p class="lead">I analyze, model, and ship data projects: geospatial risk analyses, Twitter sentiment, diabetes ML, thermodynamic modeling for coffee, and ELT (dbt · Snowflake · Airflow).</p>
-<a class="btn primary" href="portfolio.html">View Portfolio</a>
+    .grid{display:grid; grid-template-columns:repeat(12, 1fr); gap:18px; margin:28px 0 56px}
+    .card{grid-column:span 12; background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:22px 20px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 12px; font-size:18px}
+    .muted{color:var(--muted)}
 
+    .skills{display:flex; flex-wrap:wrap; gap:10px}
+    .badge{padding:8px 10px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.03); font-size:14px}
 
-<div class="section">
-<h2>Tech stack</h2>
-<div class="badges">
-<span class="badge">Python (pandas, scikit‑learn)</span>
-<span class="badge">R (tidyverse)</span>
-<span class="badge">SQL</span>
-<span class="badge">Power BI · Tableau</span>
-<span class="badge">Spark · Databricks</span>
-<span class="badge">Hadoop</span>
-<span class="badge">dbt · Airflow · Snowflake</span>
-<span class="badge">Git & GitHub</span>
-</div>
-</div>
+    .two-col{grid-column:span 12}
+    @media(min-width:860px){
+      .two-col{grid-column:span 6}
+      .hero{grid-template-columns:1.2fr .8fr}
+    }
 
+    .links{display:flex; gap:12px; flex-wrap:wrap}
+    .linkpill{padding:10px 14px; border-radius:999px; border:1px solid var(--border); color:var(--text); background:rgba(255,255,255,.03)}
+    .linkpill:hover{background:rgba(255,255,255,.08)}
 
-<div class="section">
-<h2>Experience (with skills)</h2>
-<ul class="list muted">
-<li>Built end‑to‑end ETL/ELT pipelines and dashboards.</li>
-<li>Modeled classification problems (e.g., diabetes) with feature importance.</li>
-<li>Scraped and analyzed Twitter data for sentiment and topics.</li>
-<li>Designed geospatial risk visuals and factor comparisons.</li>
-</ul>
-</div>
+    footer{border-top:1px solid var(--border); padding:20px 0 40px; color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container nav">
+      <a class="brand" href="#" aria-label="Home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>John Mora</span>
+      </a>
+      <div class="menu" role="navigation" aria-label="Primary">
+        <a class="active" href="#home">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a class="resume-btn" href="assets/JohnMora_CV.pdf" download>Resume</a>
+      </div>
+    </nav>
+  </header>
 
+  <main id="home" class="container">
+    <section class="hero" aria-label="Intro">
+      <div>
+        <span class="eyebrow">Data Analytics · ML · Big Data</span>
+        <h1>Hi, I’m <span style="color:var(--brand)">John Mora</span>.<br/> I turn data into decisions.</h1>
+        <p>
+          Data Analyst with a statistics background and hands-on projects in
+          visualization, sentiment analysis, predictive modeling, and ELT pipelines (dbt · Snowflake · Airflow).
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="portfolio.html">View Portfolio</a>
+          <a class="btn" href="#contact">Contact</a>
+          <a class="btn secondary" href="assets/JohnMora_CV.pdf" download>Download Resume</a>
+        </div>
+      </div>
+      <div class="portrait" role="img" aria-label="Portrait placeholder"></div>
+    </section>
 
-<div class="section">
-<h2>Learning</h2>
-<p class="muted">Databricks + Streaming (Kafka), dbt best practices, Snowflake warehousing, MLops basics.</p>
-</div>
+    <section class="grid" aria-label="Quick overview">
+      <div class="card two-col">
+        <h3>Tech Stack</h3>
+        <div class="skills">
+          <span class="badge">Python (pandas, scikit-learn)</span>
+          <span class="badge">R (tidyverse)</span>
+          <span class="badge">SQL</span>
+          <span class="badge">Power BI · Tableau</span>
+          <span class="badge">Spark · Databricks</span>
+          <span class="badge">Hadoop</span>
+          <span class="badge">dbt · Airflow · Snowflake</span>
+          <span class="badge">Git & GitHub</span>
+        </div>
+      </div>
 
+      <div class="card two-col">
+        <h3>About Me</h3>
+        <p class="muted">Statistics & Computer Science (ESPOL) · Post-Bacc in Marketing & Data Analytics (Okanagan College). I enjoy building clean pipelines and clear visuals that answer real business questions.</p>
+      </div>
 
-<div class="section" id="contact">
-<h2>Contact</h2>
-<p><a href="mailto:johnmora@example.com">johnmora@example.com</a> · <a href="https://www.linkedin.com/in/johnmora" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/johnmora1" target="_blank" rel="noopener">GitHub</a></p>
-</div>
-</div>
-</section>
-</main>
+      <div class="card two-col">
+        <h3>Interests</h3>
+        <p class="muted">ML for tabular problems · Geospatial analytics · Text mining & sentiment · ELT/ETL and data quality · Reproducible analytics.</p>
+      </div>
 
+      <div class="card two-col" id="contact">
+        <h3>Contact</h3>
+        <div class="links">
+          <a class="linkpill" href="mailto:johnmora@example.com">Email</a>
+          <a class="linkpill" href="https://www.linkedin.com/in/johnmora" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="linkpill" href="https://github.com/johnmora1" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<footer>
-<div class="container">© <span id="y"></span> John Mora</div>
-</footer>
+  <footer>
+    <div class="container">© <span id="y"></span> John Mora — Kelowna, BC</div>
+  </footer>
 
-
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
