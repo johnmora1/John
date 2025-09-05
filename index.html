@@ -10,12 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0d10;           
-      --panel:#12161b;        
-      --muted:#a7b0bd;        
-      --text:#eef1f6;         
-      --brand:#2ec4b6;        
-      --brand-2:#ff9f1c;      
+      --bg:#0b0d10;
+      --panel:#12161b;
+      --muted:#a7b0bd;
+      --text:#eef1f6;
+      --brand:#2ec4b6;
+      --brand-2:#ff9f1c;
       --border:rgba(255,255,255,.08);
       --shadow:0 6px 30px rgba(0,0,0,.35);
       --radius:18px;
@@ -25,13 +25,15 @@
     html,body{height:100%}
     body{
       margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      color:var(--text); background:radial-gradient(1200px 800px at 80% -10%, rgba(46,196,182,.15), transparent 60%),
-                          radial-gradient(1000px 600px at -10% 20%, rgba(255,159,28,.08), transparent 60%),
-                          var(--bg);
+      color:var(--text); background:
+        radial-gradient(1200px 800px at 80% -10%, rgba(46,196,182,.15), transparent 60%),
+        radial-gradient(1000px 600px at -10% 20%, rgba(255,159,28,.08), transparent 60%),
+        var(--bg);
     }
     a{color:inherit; text-decoration:none}
     .container{max-width:var(--max); margin:0 auto; padding:0 24px}
 
+    /* NAV */
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(150%) blur(8px)}
     .nav{
       display:flex; align-items:center; justify-content:space-between; gap:16px;
@@ -46,31 +48,32 @@
     .resume-btn{border:1px solid var(--border); background:rgba(255,255,255,.04)}
     .resume-btn:hover{background:rgba(255,255,255,.08)}
 
+    /* HERO */
     .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center; padding:56px 0 18px}
     .hero .eyebrow{display:inline-block; font-size:12px; text-transform:uppercase; letter-spacing:.18em; color:var(--muted); margin-bottom:10px}
     .hero h1{font-size:44px; line-height:1.05; margin:0 0 16px}
-    .hero p{color:var(--muted); font-size:18px; margin:0 0 24px}
-    .cta{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{padding:12px 16px; border-radius:14px; border:1px solid var(--border); background:rgba(255,255,255,.04); font-weight:600}
-    .btn:hover{background:rgba(255,255,255,.08)}
-    .btn.primary{background:var(--brand); color:#0b0d10; border-color:transparent}
-    .btn.secondary{background:rgba(255,159,28,.18); border-color:rgba(255,159,28,.36)}
+    .hero p{color:var(--muted); font-size:18px; margin:0 0 0}
+    .cta{display:none} /* ocultamos los 3 botones del hero */
 
     .portrait{
-      width:100%; aspect-ratio:1/1; border-radius:20px; background:
+      width:100%; aspect-ratio:1/1; border-radius:20px;
+      background:
         radial-gradient(60% 60% at 30% 20%, rgba(46,196,182,.35), transparent 60%),
         radial-gradient(60% 60% at 80% 90%, rgba(255,159,28,.25), transparent 60%),
-        url('https://avatars.githubusercontent.com/u/9919?s=200&v=4');
+        url('https://raw.githubusercontent.com/johnmora1/John/main/20250202_201212.jpg');
       background-size:cover; background-position:center; border:1px solid var(--border); box-shadow:var(--shadow)
     }
 
+    /* GRID + CARDS */
     .grid{display:grid; grid-template-columns:repeat(12, 1fr); gap:18px; margin:28px 0 56px}
     .card{grid-column:span 12; background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:22px 20px; box-shadow:var(--shadow)}
     .card h3{margin:0 0 12px; font-size:18px}
     .muted{color:var(--muted)}
 
-    .skills{display:flex; flex-wrap:wrap; gap:10px}
-    .badge{padding:8px 10px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.03); font-size:14px}
+    /* BADGES */
+    .stack{display:flex; flex-wrap:wrap; gap:10px}
+    .badge{padding:8px 10px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.03); font-size:14px; display:inline-flex; align-items:center; gap:8px}
+    .badge svg{width:16px; height:16px; opacity:.9}
 
     .two-col{grid-column:span 12}
     @media(min-width:860px){
@@ -101,55 +104,91 @@
   </header>
 
   <main id="home" class="container">
+    <!-- HERO -->
     <section class="hero" aria-label="Intro">
       <div>
-        <span class="eyebrow">Data Analytics · ML · Big Data</span>
-        <h1>Hi, I’m <span style="color:var(--brand)">John Mora</span>.<br/> I turn data into decisions.</h1>
+        <span class="eyebrow">Data Analysis · Data Science · Data Engineer</span>
+        <h1>Hi, I’m <span style="color:var(--brand)">John Mora</span>.<br/> I turn data into smart decisions.</h1>
         <p>
-          Data Analyst with a statistics background and hands-on projects in
-          visualization, sentiment analysis, predictive modeling, and ELT pipelines (dbt · Snowflake · Airflow).
+          I’m a data analytics professional with hands-on experience in data engineering, machine learning, and business intelligence,
+          supported by a strong academic foundation in statistics and mathematics. I specialize in transforming raw data into actionable
+          insights that drive results.
         </p>
-        <div class="cta">
-          <a class="btn primary" href="portfolio.html">View Portfolio</a>
-          <a class="btn" href="#contact">Contact</a>
-          <a class="btn secondary" href="assets/JohnMora_CV.pdf" download>Download Resume</a>
-        </div>
+        <!-- CTA removida -->
       </div>
-      <div class="portrait" role="img" aria-label="Portrait placeholder"></div>
+      <div class="portrait" role="img" aria-label="Portrait"></div>
     </section>
 
+    <!-- QUICK CARDS -->
     <section class="grid" aria-label="Quick overview">
       <div class="card two-col">
-        <h3>Tech Stack</h3>
-        <div class="skills">
-          <span class="badge">Python (pandas, scikit-learn)</span>
-          <span class="badge">R (tidyverse)</span>
-          <span class="badge">SQL</span>
-          <span class="badge">Power BI · Tableau</span>
-          <span class="badge">Spark · Databricks</span>
-          <span class="badge">Hadoop</span>
-          <span class="badge">dbt · Airflow · Snowflake</span>
-          <span class="badge">Git & GitHub</span>
+        <h3>Tech Stack — Machine Learning</h3>
+        <div class="stack">
+          <span class="badge">🧠 scikit-learn</span>
+          <span class="badge">🧠 TensorFlow</span>
+          <span class="badge">🧪 R (tidyverse)</span>
+          <span class="badge">🐍 Python</span>
         </div>
       </div>
 
       <div class="card two-col">
-        <h3>About Me</h3>
-        <p class="muted">Statistics & Computer Science (ESPOL) · Post-Bacc in Marketing & Data Analytics (Okanagan College). I enjoy building clean pipelines and clear visuals that answer real business questions.</p>
+        <h3>Tech Stack — Big Data</h3>
+        <div class="stack">
+          <span class="badge">⚡ Apache Spark</span>
+          <span class="badge">🐘 Hadoop</span>
+          <span class="badge">🏗️ Databricks</span>
+        </div>
+      </div>
+
+      <div class="card two-col">
+        <h3>Tech Stack — Cloud & Warehouses</h3>
+        <div class="stack">
+          <span class="badge">☁️ AWS</span>
+          <span class="badge">☁️ Azure</span>
+          <span class="badge">☁️ Google Cloud</span>
+          <span class="badge">❄️ Snowflake</span>
+          <span class="badge">🔎 BigQuery</span>
+        </div>
+      </div>
+
+      <div class="card two-col">
+        <h3>Tech Stack — Databases & SQL</h3>
+        <div class="stack">
+          <span class="badge">🗄️ SQL</span>
+          <span class="badge">🐘 PostgreSQL</span>
+          <span class="badge">🐬 MySQL</span>
+        </div>
+      </div>
+
+      <div class="card two-col">
+        <h3>Tech Stack — Git & CI/CD</h3>
+        <div class="stack">
+          <span class="badge">🔧 Git</span>
+          <span class="badge">🐙 GitHub</span>
+          <span class="badge">⚙️ GitHub Actions (CI/CD)</span>
+          <span class="badge">📦 dbt</span>
+          <span class="badge">🌀 Airflow</span>
+        </div>
       </div>
 
       <div class="card two-col">
         <h3>Interests</h3>
-        <p class="muted">ML for tabular problems · Geospatial analytics · Text mining & sentiment · ELT/ETL and data quality · Reproducible analytics.</p>
+        <p class="muted">
+          Keep improving data processing pipelines, adopting ML methods that best fit each problem, and staying current with new
+          technologies across analytics, engineering, and MLOps.
+        </p>
       </div>
 
       <div class="card two-col" id="contact">
         <h3>Contact</h3>
         <div class="links">
-          <a class="linkpill" href="mailto:johnmora@example.com">Email</a>
-          <a class="linkpill" href="https://www.linkedin.com/in/johnmora" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="linkpill" href="https://github.com/johnmora1" target="_blank" rel="noopener">GitHub</a>
+          <a class="linkpill" href="mailto:johnfmp0@gmail.com">johnfmp0@gmail.com</a>
+          <a class="linkpill" href="https://www.linkedin.com/in/john-mora-775a8a11b/" target="_blank" rel="noopener">LinkedIn</a>
+          <!-- GitHub eliminado a tu pedido -->
         </div>
+        <p class="muted" style="margin-top:12px">
+          As I add projects, I’ll link each one directly to its repository.
+        </p>
       </div>
     </section>
   </main>
@@ -159,6 +198,7 @@
   </footer>
 
   <script>
+    // set year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
